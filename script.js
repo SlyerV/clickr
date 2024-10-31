@@ -25,7 +25,7 @@ const worker = {
   "inf":10
 }
 // THE LIST
-const upgrades = {finger, hand, worker}
+const upgrades = [finger, hand, worker]
 // VARIABLES
 let clicks = 0
 let mIncr = 1
