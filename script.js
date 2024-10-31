@@ -69,13 +69,13 @@ if (localStorage.getItem('aaIncr')!=null) {
 if (localStorage.getItem('mmIncr')!=null) {
   mmIncr = Number(localStorage.getItem('mmIncr'))
 }
-if (localStorage.getItem('mmIncr')!=null) {
+if (localStorage.getItem('finger')!=null) {
   finger = JSON.parse(localStorage.getItem('finger'))
 }
-if (localStorage.getItem('mmIncr')!=null) {
+if (localStorage.getItem('hand')!=null) {
   hand = JSON.parse(localStorage.getItem('finger'))
 }
-if (localStorage.getItem('mmIncr')!=null) {
+if (localStorage.getItem('worker')!=null) {
   worker = JSON.parse(localStorage.getItem('finger'))
 }
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
