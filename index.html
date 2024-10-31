@@ -36,28 +36,43 @@
     <p class=stats id=mult>Multiplier: x1</p>
     <p class=stats id=cps>CPS: 0</p>
     <div>
-      <h2> Upgrades: </h2>
+      <h2>Manual Upgrades:</h2>
     </div>
     <div>
       <button 
         type="button" 
         class="button" 
         class="upgrade"
-        id=manup 
-        onclick="manbuy()" 
-        onmouseover="onHover('manup')" 
-        onmouseleave="offHover('manup')"
-        >Manual Upgrade! (Cost: 20, Multiplier: x1 → x2)
+        id=finger
+        onclick="manbuy(finger)" 
+        onmouseover="onHover('finger')" 
+        onmouseleave="offHover('finger')"
+        >Extra Finger 👉 (Cost: 10, +1x Multiplier)
       </button>
       <button 
         type="button" 
         class="button" 
         class="upgrade"
-        id=autoup 
-        onclick="autobuy()"
-        onmouseover="onHover('autoup')"
-        onmouseleave="offHover('autoup')"
-        >Auto Upgrade! (Cost: 100, CPS: 0 → 1)</button>
+        id=hand
+        onclick="manbuy(hand)" 
+        onmouseover="onHover('hand')" 
+        onmouseleave="offHover('hand')"
+        >Helping Hand 🤝 (Cost: 100, +3x Multiplier)
+      </button>
+    </div>
+    <div>
+      <h2>Auto Upgrades:</h2>
+    </div>
+    <div>
+      <button 
+        type="button" 
+        class="button" 
+        class="upgrade"
+        id=worker
+        onclick="autobuy(worker)"
+        onmouseover="onHover('worker')"
+        onmouseleave="offHover('worker')"
+        >Worker 👷 (Cost: 150, +1 CPS</button>
     </div>    
     <div>
       <button 
