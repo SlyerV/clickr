@@ -3,20 +3,23 @@ const sfxClick = new Audio("clicksfx.mp3")
 const sfxLevelUp = new Audio("levelupsfx.mp3")
 // MAN UPGRADES
 const finger = {
-  "name":"finger",
+  "id":"finger",
+  "name":"Extra Finger 👉",
   "cost":10,
   "incr":1,
   "inf":5
 }
 const hand = {
-  "name":"hand",
+  "id":"hand",
+  "name":"Helping Hand 🤝",
   "cost":100,
   "incr":3,
   "inf":20
 }
 // AUTO UPGRADES
 const worker = {
-  "name":"worker",
+  "id":"worker",
+  "name":"Worker 👷",
   "cost":150,
   "incr":1,
   "inf":10
@@ -187,6 +190,7 @@ function manbuy(clickr) {
     clicks = clicks-mCost
     mIncr+=clickr.incr
     clickr.cost = clickr.cost+clickr.inf
+    document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr}x Multiplier)`
     update()
   }
 }
@@ -197,6 +201,7 @@ function autobuy(clickr) {
         clicks = clicks-mCost
         aIncr+=clickr.incr
         clickr.cost = clickr.cost+clickr.inf
+        document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr} CPS)`
         update()
       }
   } catch (err) {
@@ -244,9 +249,9 @@ async function bgchange() {
     await sleep(1)
     for (const up of upgrades) {
       if (clicks >= up.cost) {
-        document.getElementById(up.name).style.backgroundColor = "seagreen";
+        document.getElementById(up.id).style.backgroundColor = "seagreen";
       } else {
-          document.getElementById(up.name).style.backgroundColor = "red";
+          document.getElementById(up.id).style.backgroundColor = "red";
       }
     }
     if (!(mmStart==true)) {
