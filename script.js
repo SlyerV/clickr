@@ -25,7 +25,7 @@ const worker = {
   "inf":10
 }
 // THE LIST
-const upgrades = [finger, hand, worker]
+let upgrades = [finger, hand, worker]
 // VARIABLES
 let clicks = 0
 let mIncr = 1
@@ -96,6 +96,7 @@ function update() {
     localStorage.setItem('finger',JSON.stringify(finger))
     localStorage.setItem('hand',JSON.stringify(hand))
     localStorage.setItem('worker',JSON.stringify(worker))
+    upgrades = [finger, hand, worker]
   } catch (err) {
     alert(err)
   }
@@ -113,6 +114,7 @@ function initupdate() {
   localStorage.setItem('aaStart',aaStart)
   localStorage.setItem('aaIncr', aaIncr)
   localStorage.setItem('mmIncr',mmIncr)
+  upgrades = [finger, hand, worker]
   if (aStart) {
     setautoclick()
   }
