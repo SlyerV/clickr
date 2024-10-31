@@ -69,6 +69,15 @@ if (localStorage.getItem('aaIncr')!=null) {
 if (localStorage.getItem('mmIncr')!=null) {
   mmIncr = Number(localStorage.getItem('mmIncr'))
 }
+if (localStorage.getItem('mmIncr')!=null) {
+  finger = JSON.parse(localStorage.getItem('finger'))
+}
+if (localStorage.getItem('mmIncr')!=null) {
+  hand = JSON.parse(localStorage.getItem('finger'))
+}
+if (localStorage.getItem('mmIncr')!=null) {
+  worker = JSON.parse(localStorage.getItem('finger'))
+}
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 // FUNCTIONS
 function update() {
@@ -84,6 +93,9 @@ function update() {
     localStorage.setItem('aaStart',aaStart)
     localStorage.setItem('aaIncr', aaIncr)
     localStorage.setItem('mmIncr',mmIncr)
+    localStorage.setItem('finger',JSON.stringify(finger))
+    localStorage.setItem('hand',JSON.stringify(hand))
+    localStorage.setItem('worker',JSON.stringify(worker))
   } catch (err) {
     alert(err)
   }
