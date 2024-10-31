@@ -169,31 +169,27 @@ function reset() {
   if (confirm("Are you sure you want to reset all of your progress?")) {
       clicks = 0
       mIncr = 1
-      mCost = 20
-      aCost = 100
       aIncr = 0
-      mLevel = 0
-      aLevel = 0
       aStart = false
       mmStart = false
       aaStart = false
       mmIncr = 0
       aaIncr = 0
-      const finger = {
+      finger = {
         "id":"finger",
         "name":"Extra Finger 👉",
         "cost":10,
         "incr":1,
         "inf":5
       }
-      const hand = {
+      hand = {
         "id":"hand",
         "name":"Helping Hand 🤝",
         "cost":100,
         "incr":3,
         "inf":20
       }
-      const worker = {
+      worker = {
         "id":"worker",
         "name":"Worker 👷",
         "cost":150,
