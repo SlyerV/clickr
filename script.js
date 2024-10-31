@@ -175,27 +175,9 @@ function reset() {
       aaStart = false
       mmIncr = 0
       aaIncr = 0
-      finger = {
-        "id":"finger",
-        "name":"Extra Finger 👉",
-        "cost":10,
-        "incr":1,
-        "inf":5
-      }
-      hand = {
-        "id":"hand",
-        "name":"Helping Hand 🤝",
-        "cost":100,
-        "incr":3,
-        "inf":20
-      }
-      worker = {
-        "id":"worker",
-        "name":"Worker 👷",
-        "cost":150,
-        "incr":1,
-        "inf":10
-      }
+      finger.cost = 10
+      hand.cost = 100
+      worker.cost = 150
       for (const clickr in upgrades) {
          document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr}x Multiplier)`
       }
