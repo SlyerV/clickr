@@ -1,6 +1,28 @@
 // SFX
 const sfxClick = new Audio("clicksfx.mp3") 
 const sfxLevelUp = new Audio("levelupsfx.mp3")
+// MAN UPGRADES
+const finger = {
+  "name":"finger"
+  "cost":10
+  "incr":1
+  "inf":5
+}
+const hand = {
+  "name":"hand"
+  "cost":100
+  "incr":3
+  "inf":20
+}
+// AUTO UPGRADES
+const worker = {
+  "name":"worker"
+  "cost":150
+  "incr":1
+  "inf":10
+}
+// THE LIST
+const upgrades = {finger, hand, worker}
 // VARIABLES
 let clicks = 0
 let mIncr = 1
@@ -29,18 +51,6 @@ if (localStorage.getItem('aIncr')!=null) {
 if (localStorage.getItem('mIncr')!=null) {
   mIncr = Number(localStorage.getItem('mIncr'))
 }
-if (localStorage.getItem('aLevel')!=null) {
-  aLevel = Number(localStorage.getItem('aLevel'))
-}
-if (localStorage.getItem('mLevel')!=null) {
-  mLevel = Number(localStorage.getItem('mLevel'))
-}
-if (localStorage.getItem('aCost')!=null) {
-  aCost = Number(localStorage.getItem('aCost'))
-}
-if (localStorage.getItem('mCost')!=null) {
-  mCost = Number(localStorage.getItem('mCost'))
-}
 if (localStorage.getItem('aStart')!=null) {
   aStart = localStorage.getItem('aStart')
 }
@@ -57,10 +67,6 @@ if (localStorage.getItem('mmIncr')!=null) {
   mmIncr = Number(localStorage.getItem('mmIncr'))
 }
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
-const mCosts = [50, 100, 200, 500, 1000, 2000, 5000, 10000, 50000, 100000, 1000000, "N/A"]
-const aCosts = [200, 500, 1000, 5000, 10000, 100000, 1000000, "N/A"]
-const mIncrs = [2, 3, 5, 10, 20, 50, 100, 200, 500, 1000, 5000, 10000, "MAX LEVEL"]
-const aIncrs = [1, 2, 5, 10, 50, 100, 1000, 10000, "MAX LEVEL"]
 // FUNCTIONS
 function update() {
   try {
@@ -72,10 +78,6 @@ function update() {
     localStorage.setItem('clicks', clicks);
     localStorage.setItem('aIncr', aIncr);
     localStorage.setItem('mIncr',mIncr)
-    localStorage.setItem('aLevel',aLevel)
-    localStorage.setItem('mLevel',mLevel)
-    localStorage.setItem('aCost',aCost)
-    localStorage.setItem('mCost',mCost)
     localStorage.setItem('aStart',aStart)
     localStorage.setItem('mmStart',mmStart)
     localStorage.setItem('aaStart',aaStart)
@@ -94,10 +96,6 @@ function initupdate() {
   localStorage.setItem('clicks', clicks);
   localStorage.setItem('aIncr', aIncr);
   localStorage.setItem('mIncr',mIncr)
-  localStorage.setItem('aLevel',aLevel)
-  localStorage.setItem('mLevel',mLevel)
-  localStorage.setItem('aCost',aCost)
-  localStorage.setItem('mCost',mCost)
   localStorage.setItem('aStart',aStart)
   localStorage.setItem('mmStart',mmStart)
   localStorage.setItem('aaStart',aaStart)
@@ -186,30 +184,23 @@ function reset() {
       update()
   }
 }
-function manbuy() {
-  if ((clicks > (mCost-1)) && (mIncrs[mLevel] != "MAX")) {
+function manbuy(clickr) {
+  if ((clicks >= clickr.cost)) {
     sfxLevelUp.play()
     clicks = clicks-mCost
-    mCost = mCosts[mLevel]
-    mIncr = mIncrs[mLevel]
-    mLevel = mLevel + 1
-    document.getElementById("manup").innerHTML = "Manual Upgrade! (Cost: "+mCost+", Multiplier: x"+mIncr+" → x"+(mIncrs[mLevel])+")"
+    mIncr+=clickr.incr
+    clickr[cost] = clickr[cost]+clickr.inf
     update()
   }
 }
-function autobuy() {
+function autobuy(clickr) {
   try {
-    if ((clicks > (aCost-1)) && (aIncrs[aLevel] != "MAX")) {
-      sfxLevelUp.play()
-      clicks = clicks-aCost
-      aCost = aCosts[aLevel]
-      aIncr = aIncrs[aLevel]
-      aLevel = aLevel + 1
-      document.getElementById("autoup").innerHTML = "Auto Upgrade! (Cost: "+aCost+", CPS: "+aIncr+" → "+(aIncrs[aLevel])+")"
-      update()
-      if (!aStart) {
-        aStart = true
-        setautoclick()
+      if ((clicks >= clickr.cost)) {
+        sfxLevelUp.play()
+        clicks = clicks-mCost
+        aIncr+=clickr.incr
+        clickr[cost] = clickr[cost]+clickr.inf
+        update()
       }
     }
   } catch (err) {
@@ -255,22 +246,11 @@ function cpsbuy() {
 async function bgchange() {
   while (true) {
     await sleep(1)
-    if ((clicks > (mCost - 1)) && (mChanged == true)) {
-      document.getElementById("manup").style.backgroundColor = "seagreen";
-      mChanged = false
-    } else {
-      if ((clicks < (mCost-1)) && (mChanged == false)) {
-        document.getElementById("manup").style.backgroundColor = "red";
-        mChanged = true
-      }
-    }
-    if ((clicks > (aCost - 1)) && (aChanged == true)) {
-      document.getElementById("autoup").style.backgroundColor = "seagreen";
-      aChanged = false
-    } else {
-      if ((clicks < (aCost-1)) && (aChanged == false)) {
-        document.getElementById("autoup").style.backgroundColor = "red";
-        aChanged = true
+    for (up of upgrades) {
+      if ((clicks >= up.cost) {
+        document.getElementById(up.name).style.backgroundColor = "seagreen";
+      } else  if ((clicks < up.cost)){
+          document.getElementById(up.name).style.backgroundColor = "red";
       }
     }
     if (!(mmStart==true)) {
