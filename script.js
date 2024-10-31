@@ -245,7 +245,7 @@ async function bgchange() {
     for (const up of upgrades) {
       if (clicks >= up.cost) {
         document.getElementById(up.name).style.backgroundColor = "seagreen";
-      } else  if ((clicks < up.cost)){
+      } else {
           document.getElementById(up.name).style.backgroundColor = "red";
       }
     }
