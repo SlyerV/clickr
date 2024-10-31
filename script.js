@@ -73,8 +73,6 @@ function update() {
     document.getElementById("clicks").innerHTML = "Clicks: "+clicks
     document.getElementById("mult").innerHTML = "Multiplier: x"+mIncr
     document.getElementById("cps").innerHTML = "CPS: "+aIncr
-    document.getElementById("manup").innerHTML = "Manual Upgrade! (Cost: "+mCost+", Multiplier: x"+mIncr+" → x"+mIncrs[mLevel]+")"
-    document.getElementById("autoup").innerHTML = "Auto Upgrade! (Cost: "+aCost+", CPS: "+aIncr+" → "+aIncrs[aLevel]+")"
     localStorage.setItem('clicks', clicks);
     localStorage.setItem('aIncr', aIncr);
     localStorage.setItem('mIncr',mIncr)
@@ -92,8 +90,6 @@ function initupdate() {
   document.getElementById("clicks").innerHTML = "Clicks: "+clicks
   document.getElementById("mult").innerHTML = "Multiplier: x"+mIncr
   document.getElementById("cps").innerHTML = "CPS: "+aIncr
-  document.getElementById("manup").innerHTML = "Manual Upgrade! (Cost: "+mCost+", Multiplier: x"+mIncr+" → x"+mIncrs[mLevel]+")"
-  document.getElementById("autoup").innerHTML = "Auto Upgrade! (Cost: "+aCost+", CPS: "+aIncr+" → "+aIncrs[aLevel]+")"
   localStorage.setItem('clicks', clicks);
   localStorage.setItem('aIncr', aIncr);
   localStorage.setItem('mIncr',mIncr)
@@ -180,8 +176,8 @@ function reset() {
       aaStart = false
       mmIncr = 0
       aaIncr = 0
-      document.getElementbyId("multup").innerHTML = "Multiplier Per Second! (Cost: 2000000, +1x per sec)"
-      document.getElementbyId("cpsup").innerHTML = "CPS Per Second! (Cost: 5000000, +1x per sec)"
+      document.getElementById("multup").innerHTML = "Multiplier Per Second! (Cost: 2000000, +1x per sec)"
+      document.getElementById("cpsup").innerHTML = "CPS Per Second! (Cost: 5000000, +1x per sec)"
       update()
   }
 }
@@ -246,8 +242,8 @@ function cpsbuy() {
 async function bgchange() {
   while (true) {
     await sleep(1)
-    for (up of upgrades) {
-      if ((clicks >= up.cost) {
+    for (const up of upgrades) {
+      if (clicks >= up.cost) {
         document.getElementById(up.name).style.backgroundColor = "seagreen";
       } else  if ((clicks < up.cost)){
           document.getElementById(up.name).style.backgroundColor = "red";
