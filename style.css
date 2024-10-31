@@ -1,0 +1,86 @@
+html {
+  height: 100%;
+  width: 100%;
+  background-color: #a7a5a5;
+}
+body {
+  margin-top: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0;
+}
+#navbar {
+  width: 100%;
+  margin-top: -5px;
+  border-bottom-style: dotted;
+  border-bottom-color: black;
+  background-color: #3772FF;
+  color: white;
+  font-family: DejaVu Sans Mono, monospace;
+}
+div h1 {
+  text-align: center;
+  width: 100%;
+  font-family: Blippo, fantasy;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  background-color: purple;
+  color: white;
+}
+div h2 {
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  font-family: Georgia, serif;
+  text-decoration: underline;
+  color: white;
+}
+.button {
+  background-color: seagreen;
+  color: white;
+  transition-duration: 0.2s;
+  font-family: DejaVu Sans Mono, monospace;
+  border-radius: 12px;
+  height: 33px;
+}
+#clicker {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 250px;
+  height: 150px;
+  font-size: 50px;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  border-radius: 33%;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+#reset {
+  background-color: darkred;
+  height: 100px;
+  text-align: center;
+  width: 300px;
+  font-size: 50px;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+}
+.upgrade {
+  background-color: red;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.upgrade:hover {
+  background-color: #FF5F5F;
+}
+.button:hover {
+  background-color: #00CC00;
+}
+.stats {
+  font-size: 18px;
+  font-family: DejaVu Sans Mono, monospace;
+  display:inline-block;
+  text-align: center;
+  border-style: solid;
+  background-color: orange;
+  padding-left: 10px;
+  padding-right: 10px;
+}
