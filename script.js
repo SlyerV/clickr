@@ -3,22 +3,22 @@ const sfxClick = new Audio("clicksfx.mp3")
 const sfxLevelUp = new Audio("levelupsfx.mp3")
 // MAN UPGRADES
 const finger = {
-  "name":"finger"
-  "cost":10
-  "incr":1
+  "name":"finger",
+  "cost":10,
+  "incr":1,
   "inf":5
 }
 const hand = {
-  "name":"hand"
-  "cost":100
-  "incr":3
+  "name":"hand",
+  "cost":100,
+  "incr":3,
   "inf":20
 }
 // AUTO UPGRADES
 const worker = {
-  "name":"worker"
-  "cost":150
-  "incr":1
+  "name":"worker",
+  "cost":150,
+  "incr":1,
   "inf":10
 }
 // THE LIST
@@ -190,7 +190,7 @@ function manbuy(clickr) {
     sfxLevelUp.play()
     clicks = clicks-mCost
     mIncr+=clickr.incr
-    clickr[cost] = clickr[cost]+clickr.inf
+    clickr.cost = clickr.cost+clickr.inf
     update()
   }
 }
@@ -200,10 +200,9 @@ function autobuy(clickr) {
         sfxLevelUp.play()
         clicks = clicks-mCost
         aIncr+=clickr.incr
-        clickr[cost] = clickr[cost]+clickr.inf
+        clickr.cost = clickr.cost+clickr.inf
         update()
       }
-    }
   } catch (err) {
     alert(err)
   }
