@@ -179,6 +179,30 @@ function reset() {
       aaStart = false
       mmIncr = 0
       aaIncr = 0
+      const finger = {
+        "id":"finger",
+        "name":"Extra Finger 👉",
+        "cost":10,
+        "incr":1,
+        "inf":5
+      }
+      const hand = {
+        "id":"hand",
+        "name":"Helping Hand 🤝",
+        "cost":100,
+        "incr":3,
+        "inf":20
+      }
+      const worker = {
+        "id":"worker",
+        "name":"Worker 👷",
+        "cost":150,
+        "incr":1,
+        "inf":10
+      }
+      for (const clickr in upgrades) {
+         document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr}x Multiplier)`
+      }
       document.getElementById("multup").innerHTML = "Multiplier Per Second! (Cost: 2000000, +1x per sec)"
       document.getElementById("cpsup").innerHTML = "CPS Per Second! (Cost: 5000000, +1x per sec)"
       update()
@@ -187,7 +211,7 @@ function reset() {
 function manbuy(clickr) {
   if ((clicks >= clickr.cost)) {
     sfxLevelUp.play()
-    clicks = clicks-mCost
+    clicks = clicks-clickr.cost
     mIncr+=clickr.incr
     clickr.cost = clickr.cost+clickr.inf
     document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr}x Multiplier)`
@@ -198,7 +222,7 @@ function autobuy(clickr) {
   try {
       if ((clicks >= clickr.cost)) {
         sfxLevelUp.play()
-        clicks = clicks-mCost
+        clicks = clicks-clickr.cost
         aIncr+=clickr.incr
         clickr.cost = clickr.cost+clickr.inf
         document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr} CPS)`
