@@ -167,8 +167,8 @@ function reset() {
     finger.cost = 10;
     hand.cost = 100;
     worker.cost = 150;
-    updates.forEach(update => {
-      document.getElementById(update.id).innerHTML = `${update.name} (Cost: ${update.cost}, +${update.incr} Multiplier)`;
+    upgrades.forEach(clickr => {
+      document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr} Multiplier)`;
     });
     update();
   }
