@@ -70,13 +70,13 @@ if (localStorage.getItem('mmIncr')!=null) {
   mmIncr = Number(localStorage.getItem('mmIncr'))
 }
 if (localStorage.getItem('finger')!=null) {
-  finger = JSON.parse(localStorage.getItem('finger'))
+  Object.assign(finger,JSON.parse(localStorage.getItem('finger')))
 }
 if (localStorage.getItem('hand')!=null) {
-  hand = JSON.parse(localStorage.getItem('finger'))
+  Object.assign(hand, JSON.parse(localStorage.getItem('hand')))
 }
 if (localStorage.getItem('worker')!=null) {
-  worker = JSON.parse(localStorage.getItem('finger'))
+  Object.assign(workerJSON.parse(localStorage.getItem('worker')))
 }
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 // FUNCTIONS
