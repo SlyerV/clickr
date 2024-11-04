@@ -98,7 +98,7 @@ function update() {
     localStorage.setItem("aaStart", aaStart);
     localStorage.setItem("aaIncr", aaIncr);
     localStorage.setItem("mmIncr", mmIncr);
-    localStorage.setItem("finger", finger.cost));
+    localStorage.setItem("finger", finger.cost);
     localStorage.setItem("hand", hand.cost);
     localStorage.setItem("worker", worker.cost);
   } catch (err) {
