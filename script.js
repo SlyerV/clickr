@@ -40,6 +40,8 @@ let mLevel = 0;
 let aLevel = 0;
 let mmStart = false;
 let aaStart = false;
+let mmChanged = false;
+let aaChanged = false;
 let mmIncr = 0;
 let aaIncr = 0;
 let mmCost = 2000000;
@@ -87,6 +89,9 @@ function update() {
     document.getElementById("clicks").innerHTML = "Clicks: "+clicks
     document.getElementById("mult").innerHTML = "Multiplier: x"+mIncr
     document.getElementById("cps").innerHTML = "CPS: "+aIncr
+    upgrades.forEach(up => {
+        document.getElementById(up.id).innerHTML = ${up.name} (Cost: ${up.cost}, +${up.incr} Multiplier);
+    });
     localStorage.setItem('clicks', clicks);
     localStorage.setItem('aIncr', aIncr);
     localStorage.setItem('mIncr',mIncr)
@@ -108,6 +113,9 @@ function initupdate() {
   document.getElementById("clicks").innerHTML = "Clicks: "+clicks
   document.getElementById("mult").innerHTML = "Multiplier: x"+mIncr
   document.getElementById("cps").innerHTML = "CPS: "+aIncr
+  upgrades.forEach(up => {
+      document.getElementById(up.id).innerHTML = ${up.name} (Cost: ${up.cost}, +${up.incr} Multiplier);
+  });
   localStorage.setItem('clicks', clicks);
   localStorage.setItem('aIncr', aIncr);
   localStorage.setItem('mIncr',mIncr)
