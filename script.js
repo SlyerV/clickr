@@ -26,7 +26,9 @@ const worker = {
   incr: 1,
   inf: 10
 };
-
+localStorage.setItem("finger", finger.cost));
+localStorage.setItem("hand", hand.cost);
+localStorage.setItem("worker", worker.cost);
 // THE LIST
 let upgrades = [finger, hand, worker];
 
@@ -71,13 +73,13 @@ if (localStorage.getItem("mmIncr") != null) {
   mmIncr = Number(localStorage.getItem("mmIncr"));
 }
 if (localStorage.getItem("finger") != null) {
-  Object.assign(finger, JSON.parse(localStorage.getItem("finger")));
+  finger = Number(finger.cost);
 }
 if (localStorage.getItem("hand") != null) {
-  Object.assign(hand, JSON.parse(localStorage.getItem("hand")));
+  hand = Number(hand.cost);
 }
 if (localStorage.getItem("worker") != null) {
-  Object.assign(worker, JSON.parse(localStorage.getItem("worker")));
+  worker = Number(worker.cost);
 }
 
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
@@ -96,9 +98,9 @@ function update() {
     localStorage.setItem("aaStart", aaStart);
     localStorage.setItem("aaIncr", aaIncr);
     localStorage.setItem("mmIncr", mmIncr);
-    localStorage.setItem("finger", JSON.stringify(finger));
-    localStorage.setItem("hand", JSON.stringify(hand));
-    localStorage.setItem("worker", JSON.stringify(worker));
+    localStorage.setItem("finger", finger.cost));
+    localStorage.setItem("hand", hand.cost);
+    localStorage.setItem("worker", worker.cost);
   } catch (err) {
     alert(err);
   }
