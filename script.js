@@ -176,6 +176,18 @@ function reset() {
   }
 }
 
+async function bgchange() {
+  while (true) {
+    await sleep(1)
+    for (let up of upgrades) {
+      if (clicks >= up.cost) {
+        document.getElementbyId(up.id).style.backgroundColor = "seagreen";
+      } else {
+        document.getElementbyId(up.id).style.backgroundColor = "seagreen";
+      }
+    }
+  }
+}
 // Initialization
 initupdate();
 bgchange();
