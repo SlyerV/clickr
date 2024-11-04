@@ -183,6 +183,7 @@ function increase() {
 }
 function reset() {
   if (confirm("Are you sure you want to reset all of your progress?")) {
+      localStorage.clear();
       clicks = 0
       mIncr = 1
       aIncr = 0
