@@ -107,9 +107,24 @@ function update() {
 }
 
 function initupdate() {
+  alert("e")
   document.getElementById("clicks").innerHTML = "Clicks: " + clicks;
   document.getElementById("mult").innerHTML = "Multiplier: x" + mIncr;
   document.getElementById("cps").innerHTML = "CPS: " + aIncr;
+  upgrades.forEach(up => {
+    document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} Multiplier)`;
+  });
+  localStorage.setItem("clicks", clicks);
+  localStorage.setItem("aIncr", aIncr);
+  localStorage.setItem("mIncr", mIncr);
+  localStorage.setItem("aStart", aStart);
+  localStorage.setItem("mmStart", mmStart);
+  localStorage.setItem("aaStart", aaStart);
+  localStorage.setItem("aaIncr", aaIncr);
+  localStorage.setItem("mmIncr", mmIncr);
+  localStorage.setItem("finger", finger.cost);
+  localStorage.setItem("hand", hand.cost);
+  localStorage.setItem("worker", worker.cost);
   if (aStart) setautoclick();
   if (mmStart) {
     document.getElementById("multup").innerHTML = "MULTIPLIER PER SECOND: BOUGHT";
