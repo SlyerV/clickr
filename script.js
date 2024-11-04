@@ -27,8 +27,9 @@ const worker = {
   inf: 10
 };
 // THE LIST
-let upgrades = [finger, hand, worker];
-
+let allUpgrades = [finger, hand, worker];
+let mUpgrades = [finger, hand];
+let aUpgrades = [worker];
 // VARIABLES
 let clicks = 0;
 let mIncr = 1;
@@ -89,8 +90,11 @@ function update() {
     document.getElementById("clicks").innerHTML = "Clicks: "+clicks
     document.getElementById("mult").innerHTML = "Multiplier: x"+mIncr
     document.getElementById("cps").innerHTML = "CPS: "+aIncr
-    upgrades.forEach(up => {
-        document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} Multiplier)`;
+    mUpgrades.forEach(up => {
+        document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
+    });
+    aUpgrades.forEach(up => {
+        document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
     });
     localStorage.setItem('clicks', clicks);
     localStorage.setItem('aIncr', aIncr);
@@ -100,10 +104,12 @@ function update() {
     localStorage.setItem('aaStart',aaStart)
     localStorage.setItem('aaIncr', aaIncr)
     localStorage.setItem('mmIncr',mmIncr)
-    localStorage.setItem('finger',JSON.stringify(finger))
-    localStorage.setItem('hand',JSON.stringify(hand))
-    localStorage.setItem('worker',JSON.stringify(worker))
-    upgrades = [finger, hand, worker]
+    localStorage.setItem('finger',finger.cost)
+    localStorage.setItem('hand',hand.cost)
+    localStorage.setItem('worker',worker.cost)
+    allUpgrades = [finger, hand, worker]
+    mUpgrades = [finger, hand]
+    aUpgrades = [worker]
   } catch (err) {
     alert(err)
   }
@@ -113,8 +119,11 @@ function initupdate() {
   document.getElementById("clicks").innerHTML = "Clicks: "+clicks
   document.getElementById("mult").innerHTML = "Multiplier: x"+mIncr
   document.getElementById("cps").innerHTML = "CPS: "+aIncr
-  upgrades.forEach(up => {
-      document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} Multiplier)`;
+  mUpgrades.forEach(up => {
+      document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
+  });
+  aUpgrades.forEach(up => {
+      document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
   });
   localStorage.setItem('clicks', clicks);
   localStorage.setItem('aIncr', aIncr);
@@ -124,7 +133,12 @@ function initupdate() {
   localStorage.setItem('aaStart',aaStart)
   localStorage.setItem('aaIncr', aaIncr)
   localStorage.setItem('mmIncr',mmIncr)
-  upgrades = [finger, hand, worker]
+  localStorage.setItem('finger',finger.cost)
+  localStorage.setItem('hand',hand.cost)
+  localStorage.setItem('worker',worker.cost)
+  allUpgrades = [finger, hand, worker]
+  mUpgrades = [finger, hand]
+  aUpgrades = [worker]
   if (aStart) {
     setautoclick()
   }
@@ -203,9 +217,12 @@ function reset() {
       finger.cost = 10
       hand.cost = 100
       worker.cost = 150
-      for (const clickr in upgrades) {
-         document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr}x Multiplier)`
-      }
+      mUpgrades.forEach(up => {
+          document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
+      });
+      aUpgrades.forEach(up => {
+          document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
+      });
       document.getElementById("multup").innerHTML = "Multiplier Per Second! (Cost: 2000000, +1x per sec)"
       document.getElementById("cpsup").innerHTML = "CPS Per Second! (Cost: 5000000, +1x per sec)"
       update()
@@ -274,7 +291,7 @@ function cpsbuy() {
 async function bgchange() {
   while (true) {
     await sleep(1)
-    for (const up of upgrades) {
+    for (const up of allUpgrades) {
       if (clicks >= up.cost) {
         document.getElementById(up.id).style.backgroundColor = "seagreen";
       } else {
