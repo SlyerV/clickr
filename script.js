@@ -87,8 +87,8 @@ function update() {
     document.getElementById("clicks").innerHTML = "Clicks: " + clicks;
     document.getElementById("mult").innerHTML = "Multiplier: x" + mIncr;
     document.getElementById("cps").innerHTML = "CPS: " + aIncr;
-    upgrades.forEach(clickr => {
-      document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr} Multiplier)`;
+    upgrades.forEach(up => {
+      document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} Multiplier)`;
     });
     localStorage.setItem("clicks", clicks);
     localStorage.setItem("aIncr", aIncr);
@@ -169,8 +169,8 @@ function reset() {
     finger.cost = 10;
     hand.cost = 100;
     worker.cost = 150;
-    upgrades.forEach(clickr => {
-      document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr} Multiplier)`;
+    upgrades.forEach(up => {
+      document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} Multiplier)`;
     });
     update();
   }
