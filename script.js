@@ -90,7 +90,7 @@ function update() {
     document.getElementById("mult").innerHTML = "Multiplier: x"+mIncr
     document.getElementById("cps").innerHTML = "CPS: "+aIncr
     upgrades.forEach(up => {
-        document.getElementById(up.id).innerHTML = ${up.name} (Cost: ${up.cost}, +${up.incr} Multiplier);
+        document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} Multiplier)`;
     });
     localStorage.setItem('clicks', clicks);
     localStorage.setItem('aIncr', aIncr);
@@ -114,7 +114,7 @@ function initupdate() {
   document.getElementById("mult").innerHTML = "Multiplier: x"+mIncr
   document.getElementById("cps").innerHTML = "CPS: "+aIncr
   upgrades.forEach(up => {
-      document.getElementById(up.id).innerHTML = ${up.name} (Cost: ${up.cost}, +${up.incr} Multiplier);
+      document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} Multiplier)`;
   });
   localStorage.setItem('clicks', clicks);
   localStorage.setItem('aIncr', aIncr);
