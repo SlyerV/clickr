@@ -1,2 +1,2 @@
 # clickr
-clicking game
+clickrz.netlify.app
