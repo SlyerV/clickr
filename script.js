@@ -26,9 +26,6 @@ const worker = {
   incr: 1,
   inf: 10
 };
-localStorage.setItem("finger", finger.cost);
-localStorage.setItem("hand", hand.cost);
-localStorage.setItem("worker", worker.cost);
 // THE LIST
 let upgrades = [finger, hand, worker];
 
