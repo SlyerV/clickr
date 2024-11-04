@@ -90,6 +90,9 @@ function update() {
     document.getElementById("clicks").innerHTML = "Clicks: " + clicks;
     document.getElementById("mult").innerHTML = "Multiplier: x" + mIncr;
     document.getElementById("cps").innerHTML = "CPS: " + aIncr;
+    upgrades.forEach(clickr => {
+      document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr} Multiplier)`;
+    });
     localStorage.setItem("clicks", clicks);
     localStorage.setItem("aIncr", aIncr);
     localStorage.setItem("mIncr", mIncr);
