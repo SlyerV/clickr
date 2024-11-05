@@ -76,13 +76,22 @@ if (localStorage.getItem("mmIncr") != null) {
   mmIncr = Number(localStorage.getItem("mmIncr"));
 }
 if (localStorage.getItem("finger") != null) {
-  finger.cost = Number(localStorage.getItem('finger'));
+  finger.cost = Number(localStorage.getItem('cFinger'));
 }
 if (localStorage.getItem("hand") != null) {
-  hand.cost = Number(localStorage.getItem('hand'));
+  hand.cost = Number(localStorage.getItem('cHand'));
 }
 if (localStorage.getItem("worker") != null) {
-  worker.cost = Number(localStorage.getItem('worker'));
+  worker.cost = Number(localStorage.getItem('cWorker'));
+}
+if (localStorage.getItem("finger") != null) {
+  finger.show = Number(localStorage.getItem('sFinger'));
+}
+if (localStorage.getItem("hand") != null) {
+  hand.show = Number(localStorage.getItem('sHand'));
+}
+if (localStorage.getItem("worker") != null) {
+  worker.show = Number(localStorage.getItem('sWorker'));
 }
 
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
@@ -95,7 +104,8 @@ function update() {
     document.getElementById("cps").innerHTML = "CPS: "+aIncr
     mUpgrades.forEach(up => {
       if (clicks >= up.show) {
-        document.getElementById(up.id).style.display = "block";
+        document.getElementById(up.id).style.display = "inline-block";
+        up.show = 0
       } else {
         document.getElementById(up.id).style.display = "none";
       }
@@ -103,7 +113,7 @@ function update() {
     });
     aUpgrades.forEach(up => {
       if (up.show >= clicks) {
-        document.getElementById(up.id).style.display = "block";
+        document.getElementById(up.id).style.display = "inline-block";
       } else {
         document.getElementById(up.id).style.display = "none";
       }
@@ -117,9 +127,12 @@ function update() {
     localStorage.setItem('aaStart',aaStart)
     localStorage.setItem('aaIncr', aaIncr)
     localStorage.setItem('mmIncr',mmIncr)
-    localStorage.setItem('finger',finger.cost)
-    localStorage.setItem('hand',hand.cost)
-    localStorage.setItem('worker',worker.cost)
+    localStorage.setItem('cFinger',finger.cost)
+    localStorage.setItem('cHand',hand.cost)
+    localStorage.setItem('cWorker',worker.cost)
+    localStorage.setItem('sFinger',finger.show)
+    localStorage.setItem('sHand',hand.show)
+    localStorage.setItem('sWorker',worker.show)
     allUpgrades = [finger, hand, worker]
     mUpgrades = [finger, hand]
     aUpgrades = [worker]
@@ -146,9 +159,12 @@ function initupdate() {
   localStorage.setItem('aaStart',aaStart)
   localStorage.setItem('aaIncr', aaIncr)
   localStorage.setItem('mmIncr',mmIncr)
-  localStorage.setItem('finger',finger.cost)
-  localStorage.setItem('hand',hand.cost)
-  localStorage.setItem('worker',worker.cost)
+  localStorage.setItem('cFinger',finger.cost)
+  localStorage.setItem('cHand',hand.cost)
+  localStorage.setItem('cWorker',worker.cost)
+  localStorage.setItem('sFinger',finger.show)
+  localStorage.setItem('sHand',hand.show)
+  localStorage.setItem('sWorker',worker.show)
   allUpgrades = [finger, hand, worker]
   mUpgrades = [finger, hand]
   aUpgrades = [worker]
