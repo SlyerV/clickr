@@ -40,3 +40,10 @@ if (localStorage.getItem("hand") != null) {
 if (localStorage.getItem("worker") != null) {
   worker.show = Number(localStorage.getItem('sWorker'));
 }
+const vars = [clicks, mIncr, aIncr, aStart, mmStart, aaStart, mmIncr, aaIncr, cFinger, cHand, cWorker, sFinger, sHand, sWorker]
+let r = ""
+for (let x of vars) {
+  const name = Object.keys({x})[0]
+  r+=(name+": "+x+"\n")
+}
+document.getElementById("vars").innerHTML = r
