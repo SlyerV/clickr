@@ -8,14 +8,16 @@ const finger = {
   name: "Extra Finger 👉",
   cost: 10,
   incr: 1,
-  inf: 20
+  inf: 20,
+  show: 0
 };
 const hand = {
   id: "hand",
   name: "Helping Hand 🤝",
   cost: 100,
   incr: 3,
-  inf: 50
+  inf: 50,
+  show: 50
 };
 
 // AUTO UPGRADES
@@ -24,7 +26,8 @@ const worker = {
   name: "Worker 👷",
   cost: 150,
   incr: 1,
-  inf: 75
+  inf: 75,
+  show: 100
 };
 // THE LIST
 let allUpgrades = [finger, hand, worker];
@@ -91,10 +94,15 @@ function update() {
     document.getElementById("mult").innerHTML = "Multiplier: x"+mIncr
     document.getElementById("cps").innerHTML = "CPS: "+aIncr
     mUpgrades.forEach(up => {
-        document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
+      if (up.show >= clicks) {
+        document.getElementById(up.id).style.display = "block";
+      } else {
+        document.getElementById(up.id).style.display = "none";
+      }
+      document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
     });
     aUpgrades.forEach(up => {
-        document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
+      document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
     });
     localStorage.setItem('clicks', clicks);
     localStorage.setItem('aIncr', aIncr);
