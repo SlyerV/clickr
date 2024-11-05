@@ -309,6 +309,7 @@ function manbuy(clickr) {
     clickr.num+=1
     document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr}x Multiplier)`
     document.getElementById(clickr.id+"s").innerHTML = clickr.emoji.repeat(clickr.num)
+    alert(clickr.num)
     update()
   }
 }
@@ -319,6 +320,7 @@ function autobuy(clickr) {
         clicks = clicks-clickr.cost
         aIncr+=clickr.incr
         clickr.cost = Math.round(clickr.cost*clickr.inf)
+        clickr.num+=1
         document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr} CPS)`
         document.getElementById(clickr.id+"s").innerHTML = clickr.emoji.repeat(clickr.num)
         if (!aStart) {
