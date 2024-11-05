@@ -36,7 +36,6 @@ div h2 {
   color: white;
 }
 .button {
-  display: none;
   background-color: seagreen;
   color: white;
   transition-duration: 0.2s;
@@ -65,6 +64,7 @@ div h2 {
   font-family: Comic Sans MS, Comic Sans, cursive;
 }
 .upgrade {
+  display:none;
   background-color: red;
   margin-left: 15%;
   margin-right: 15%;
