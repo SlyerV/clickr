@@ -142,7 +142,7 @@ function update() {
   }
 }
 function initupdate() {
-  alert("e")
+  // alert("e")
   document.getElementById("clicks").innerHTML = "Clicks: "+clicks
   document.getElementById("mult").innerHTML = "Multiplier: x"+mIncr
   document.getElementById("cps").innerHTML = "CPS: "+aIncr
