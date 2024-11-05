@@ -35,6 +35,10 @@ div h2 {
   text-decoration: underline;
   color: white;
 }
+strong {
+  display: block;
+  font-size: 40px;
+}
 .button {
   background-color: seagreen;
   color: white;
