@@ -58,13 +58,13 @@ if (localStorage.getItem("mIncr") != null) {
   mIncr = Number(localStorage.getItem("mIncr"));
 }
 if (localStorage.getItem("aStart") != null) {
-  aStart = localStorage.getItem("aStart") === "true";
+  aStart = Boolean(localStorage.getItem("aStart"))
 }
 if (localStorage.getItem("mmStart") != null) {
-  mmStart = localStorage.getItem("mmStart") === "true";
+  mmStart = Boolean(localStorage.getItem("mmStart"))
 }
 if (localStorage.getItem("aaStart") != null) {
-  aaStart = localStorage.getItem("aaStart") === "true";
+  aaStart = Boolean(localStorage.getItem("aaStart"))
 }
 if (localStorage.getItem("aaIncr") != null) {
   aaIncr = Number(localStorage.getItem("aaIncr"));
@@ -246,6 +246,10 @@ function autobuy(clickr) {
         aIncr+=clickr.incr
         clickr.cost = clickr.cost+clickr.inf
         document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr} CPS)`
+        if (!aStart) {
+          aStart = true
+          setautoclick()
+        }
         update()
       }
   } catch (err) {
