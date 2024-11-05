@@ -8,14 +8,14 @@ const finger = {
   name: "Extra Finger 👉",
   cost: 10,
   incr: 1,
-  inf: 5
+  inf: 20
 };
 const hand = {
   id: "hand",
   name: "Helping Hand 🤝",
   cost: 100,
   incr: 3,
-  inf: 20
+  inf: 50
 };
 
 // AUTO UPGRADES
@@ -24,7 +24,7 @@ const worker = {
   name: "Worker 👷",
   cost: 150,
   incr: 1,
-  inf: 10
+  inf: 75
 };
 // THE LIST
 let allUpgrades = [finger, hand, worker];
