@@ -27,7 +27,7 @@ const worker = {
   cost: 150,
   incr: 1,
   inf: 1.25,
-  show: 100
+  show: 125
 };
 // THE LIST
 let allUpgrades = [finger, hand, worker];
