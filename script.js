@@ -123,7 +123,7 @@ function update() {
         document.getElementById(up.id).style.display = "none";
       }
       document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
-      document.getElementById(up.id+"s").innerHTML = ""
+      document.getElementById((up.id+"s")).innerHTML = ""
     });
     aUpgrades.forEach(up => {
       if ((clicks >= up.show) & (up.show != 0)) {
@@ -133,7 +133,7 @@ function update() {
         document.getElementById(up.id).style.display = "none";
       }
       document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
-      document.getElementById(up.id+"s").innerHTML = ""
+      document.getElementById((up.id+"s")).innerHTML = ""
     });
     localStorage.setItem('clicks', clicks);
     localStorage.setItem('aIncr', aIncr);
@@ -172,7 +172,7 @@ function initupdate() {
       document.getElementById(up.id).style.display = "none";
     }
     document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
-    document.getElementById(up.id+"s").innerHTML = ""
+    document.getElementById((up.id+"s")).innerHTML = ""
   });
   aUpgrades.forEach(up => {
     if ((clicks >= up.show) & (up.show != 0)) {
@@ -182,7 +182,7 @@ function initupdate() {
       document.getElementById(up.id).style.display = "none";
     }
     document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
-    document.getElementById(up.id+"s").innerHTML = ""
+    document.getElementById((up.id+"s")).innerHTML = ""
   });
   localStorage.setItem('clicks', clicks);
   localStorage.setItem('aIncr', aIncr);
@@ -308,7 +308,7 @@ function manbuy(clickr) {
     clickr.cost = Math.round(clickr.cost*clickr.inf)
     clickr.num+=1
     document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr}x Multiplier)`
-    document.getElementById(clickr.id+"s").innerHTML = clickr.emoji.repeat(clickr.num)
+    document.getElementById((clickr.id+"s")).innerHTML = clickr.emoji.repeat(clickr.num)
     alert(clickr.num)
     update()
   }
@@ -322,7 +322,7 @@ function autobuy(clickr) {
         clickr.cost = Math.round(clickr.cost*clickr.inf)
         clickr.num+=1
         document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr} CPS)`
-        document.getElementById(clickr.id+"s").innerHTML = clickr.emoji.repeat(clickr.num)
+        document.getElementById((clickr.id+"s")).innerHTML = clickr.emoji.repeat(clickr.num)
         if (!aStart) {
           aStart = true
           setautoclick()
