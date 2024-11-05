@@ -1,7 +1,7 @@
 // SFX
 const sfxClick = new Audio("clicksfx.mp3");
 const sfxLevelUp = new Audio("levelupsfx.mp3");
-
+const sfxReset = new Audio("resetsfx.mp3");
 // MAN UPGRADES
 const finger = {
   id: "finger",
@@ -247,6 +247,7 @@ function increase() {
 }
 function reset() {
   if (confirm("Are you sure you want to reset all of your progress?")) {
+      sfxReset.play()
       localStorage.clear();
       clicks = 0
       mIncr = 1
