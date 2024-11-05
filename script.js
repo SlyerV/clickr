@@ -112,9 +112,10 @@ function update() {
       document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
     });
     aUpgrades.forEach(up => {
-      if (up.show >= clicks) {
+      if ((clicks >= up.show) & (up.show != 0)) {
         document.getElementById(up.id).style.display = "inline-block";
-      } else {
+        up.show = 0
+      } else if (clicks < up.show) {
         document.getElementById(up.id).style.display = "none";
       }
       document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
@@ -146,10 +147,22 @@ function initupdate() {
   document.getElementById("mult").innerHTML = "Multiplier: x"+mIncr
   document.getElementById("cps").innerHTML = "CPS: "+aIncr
   mUpgrades.forEach(up => {
-      document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
+    if ((clicks >= up.show) & (up.show != 0)) {
+      document.getElementById(up.id).style.display = "inline-block";
+      up.show = 0
+    } else if (clicks < up.show) {
+      document.getElementById(up.id).style.display = "none";
+    }
+    document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
   });
   aUpgrades.forEach(up => {
-      document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
+    if ((clicks >= up.show) & (up.show != 0)) {
+      document.getElementById(up.id).style.display = "inline-block";
+      up.show = 0
+    } else if (clicks < up.show) {
+      document.getElementById(up.id).style.display = "none";
+    }
+    document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
   });
   localStorage.setItem('clicks', clicks);
   localStorage.setItem('aIncr', aIncr);
