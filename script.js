@@ -103,10 +103,10 @@ function update() {
     document.getElementById("mult").innerHTML = "Multiplier: x"+mIncr
     document.getElementById("cps").innerHTML = "CPS: "+aIncr
     mUpgrades.forEach(up => {
-      if (clicks >= up.show) {
+      if ((clicks >= up.show) & (up.show != 0)) {
         document.getElementById(up.id).style.display = "inline-block";
         up.show = 0
-      } else {
+      } else if (clicks < up.show) {
         document.getElementById(up.id).style.display = "none";
       }
       document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
