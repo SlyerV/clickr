@@ -102,6 +102,11 @@ function update() {
       document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
     });
     aUpgrades.forEach(up => {
+      if (up.show >= clicks) {
+        document.getElementById(up.id).style.display = "block";
+      } else {
+        document.getElementById(up.id).style.display = "none";
+      }
       document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
     });
     localStorage.setItem('clicks', clicks);
