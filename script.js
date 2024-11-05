@@ -289,7 +289,7 @@ function autobuy(clickr) {
         sfxLevelUp.play()
         clicks = clicks-clickr.cost
         aIncr+=clickr.incr
-        clickr.cost = Math.round(clickr.cost+clickr.inf)
+        clickr.cost = Math.round(clickr.cost*clickr.inf)
         document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr} CPS)`
         if (!aStart) {
           aStart = true
