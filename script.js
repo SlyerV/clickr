@@ -73,13 +73,14 @@ if (localStorage.getItem("mmIncr") != null) {
   mmIncr = Number(localStorage.getItem("mmIncr"));
 }
 if (localStorage.getItem("finger") != null) {
-  finger.cost = Number(localStorage.getItem("finger"));
+  finger = localStorage.getItem('finger') === 'true';
+
 }
 if (localStorage.getItem("hand") != null) {
-  hand.cost = Number(localStorage.getItem("hand"));
+  hand = localStorage.getItem('hand') === 'true';
 }
 if (localStorage.getItem("worker") != null) {
-  worker.cost = Number(localStorage.getItem("worker"));
+  worker = localStorage.getItem('worker') === 'true';
 }
 
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
