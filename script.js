@@ -94,7 +94,7 @@ function update() {
     document.getElementById("mult").innerHTML = "Multiplier: x"+mIncr
     document.getElementById("cps").innerHTML = "CPS: "+aIncr
     mUpgrades.forEach(up => {
-      if (up.show >= clicks) {
+      if (clicks >= up.show) {
         document.getElementById(up.id).style.display = "block";
       } else {
         document.getElementById(up.id).style.display = "none";
