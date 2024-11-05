@@ -6,28 +6,34 @@ const sfxReset = new Audio("resetsfx.mp3");
 const finger = {
   id: "finger",
   name: "Extra Finger 👉",
+  emoji: "👉 ",
   cost: 10,
   incr: 1,
   inf: 2,
-  show: 0
+  show: 0,
+  num: 0
 };
 const hand = {
   id: "hand",
   name: "Helping Hand 🤝",
+  emoji: "🤝 ",
   cost: 100,
   incr: 3,
   inf: 1.5,
-  show: 50
+  show: 50,
+  num: 0
 };
 
 // AUTO UPGRADES
 const worker = {
   id: "worker",
   name: "Worker 👷",
+  emoji: "👷 ",
   cost: 150,
   incr: 1,
   inf: 1.25,
-  show: 125
+  show: 125,
+  num: 0
 };
 // THE LIST
 let allUpgrades = [finger, hand, worker];
@@ -50,7 +56,6 @@ let mmIncr = 0;
 let aaIncr = 0;
 let mmCost = 2000000;
 let aaCost = 5000000;
-
 if (localStorage.getItem("clicks") != null) {
   clicks = Number(localStorage.getItem("clicks"));
 }
@@ -93,7 +98,15 @@ if (localStorage.getItem("hand") != null) {
 if (localStorage.getItem("worker") != null) {
   worker.show = Number(localStorage.getItem('sWorker'));
 }
-
+if (localStorage.getItem("fingers") != null) {
+  finger.num = Number(localStorage.getItem('fingers'));
+}
+if (localStorage.getItem("hands") != null) {
+  hand.num = Number(localStorage.getItem('hands'));
+}
+if (localStorage.getItem("worker") != null) {
+  worker.num = Number(localStorage.getItem('workers'));
+}
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
 // FUNCTIONS
@@ -110,6 +123,7 @@ function update() {
         document.getElementById(up.id).style.display = "none";
       }
       document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
+      document.getElementById(up.id+"s").innerHTML = ""
     });
     aUpgrades.forEach(up => {
       if ((clicks >= up.show) & (up.show != 0)) {
@@ -119,6 +133,7 @@ function update() {
         document.getElementById(up.id).style.display = "none";
       }
       document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
+      document.getElementById(up.id+"s").innerHTML = ""
     });
     localStorage.setItem('clicks', clicks);
     localStorage.setItem('aIncr', aIncr);
@@ -134,6 +149,9 @@ function update() {
     localStorage.setItem('sFinger',finger.show)
     localStorage.setItem('sHand',hand.show)
     localStorage.setItem('sWorker',worker.show)
+    localStorage.setItem('fingers',finger.num)
+    localStorage.setItem('hands',hand.num)
+    localStorage.setItem('workers',worker.num)
     allUpgrades = [finger, hand, worker]
     mUpgrades = [finger, hand]
     aUpgrades = [worker]
@@ -154,6 +172,7 @@ function initupdate() {
       document.getElementById(up.id).style.display = "none";
     }
     document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
+    document.getElementById(up.id+"s").innerHTML = ""
   });
   aUpgrades.forEach(up => {
     if ((clicks >= up.show) & (up.show != 0)) {
@@ -163,6 +182,7 @@ function initupdate() {
       document.getElementById(up.id).style.display = "none";
     }
     document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
+    document.getElementById(up.id+"s").innerHTML = ""
   });
   localStorage.setItem('clicks', clicks);
   localStorage.setItem('aIncr', aIncr);
@@ -178,6 +198,9 @@ function initupdate() {
   localStorage.setItem('sFinger',finger.show)
   localStorage.setItem('sHand',hand.show)
   localStorage.setItem('sWorker',worker.show)
+  localStorage.setItem('fingers',finger.num)
+  localStorage.setItem('hands',hand.num)
+  localStorage.setItem('workers',worker.num)
   allUpgrades = [finger, hand, worker]
   mUpgrades = [finger, hand]
   aUpgrades = [worker]
@@ -263,6 +286,9 @@ function reset() {
       finger.show = 0
       hand.show = 50
       worker.show = 100
+      finger.num = 0
+      hand.num = 0
+      worker.num = 0
       mUpgrades.forEach(up => {
           document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
       });
@@ -280,7 +306,9 @@ function manbuy(clickr) {
     clicks = clicks-clickr.cost
     mIncr+=clickr.incr
     clickr.cost = Math.round(clickr.cost*clickr.inf)
+    clickr.num+=1
     document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr}x Multiplier)`
+    document.getElementById(clickr.id+"s").innerHTML = clickr.emoji.repeat(clickr.num)
     update()
   }
 }
@@ -292,6 +320,7 @@ function autobuy(clickr) {
         aIncr+=clickr.incr
         clickr.cost = Math.round(clickr.cost*clickr.inf)
         document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr} CPS)`
+        document.getElementById(clickr.id+"s").innerHTML = clickr.emoji.repeat(clickr.num)
         if (!aStart) {
           aStart = true
           setautoclick()
