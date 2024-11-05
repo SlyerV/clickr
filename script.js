@@ -58,13 +58,13 @@ if (localStorage.getItem("mIncr") != null) {
   mIncr = Number(localStorage.getItem("mIncr"));
 }
 if (localStorage.getItem("aStart") != null) {
-  aStart = localStorage.getItem('aStart') === 'true';
+  aStart = Boolean(localStorage.getItem('aStart') === 'true');
 }
 if (localStorage.getItem("mmStart") != null) {
-  mmStart = localStorage.getItem('mmStart') === 'true';
+  mmStart = Boolean(localStorage.getItem('mmStart') === 'true');
 }
 if (localStorage.getItem("aaStart") != null) {
-  aaStart = localStorage.getItem('aaStart') === 'true';
+  aaStart = Boolean(localStorage.getItem('aaStart') === 'true');
 }
 if (localStorage.getItem("aaIncr") != null) {
   aaIncr = Number(localStorage.getItem("aaIncr"));
