@@ -123,7 +123,7 @@ function update() {
         document.getElementById(up.id).style.display = "none";
       }
       document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
-      document.getElementById((up.id+"s")).innerHTML = clickr.emoji.repeat(clickr.num)
+      document.getElementById((up.id+"s")).innerHTML = up.emoji.repeat(up.num)
     });
     aUpgrades.forEach(up => {
       if ((clicks >= up.show) & (up.show != 0)) {
@@ -133,7 +133,7 @@ function update() {
         document.getElementById(up.id).style.display = "none";
       }
       document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
-      document.getElementById((up.id+"s")).innerHTML = clickr.emoji.repeat(clickr.num)
+      document.getElementById((up.id+"s")).innerHTML = up.emoji.repeat(up.num)
     });
     localStorage.setItem('clicks', clicks);
     localStorage.setItem('aIncr', aIncr);
@@ -172,7 +172,7 @@ function initupdate() {
       document.getElementById(up.id).style.display = "none";
     }
     document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
-    document.getElementById((up.id+"s")).innerHTML = clickr.emoji.repeat(clickr.num)
+    document.getElementById((up.id+"s")).innerHTML = up.emoji.repeat(up.num)
   });
   aUpgrades.forEach(up => {
     if ((clicks >= up.show) & (up.show != 0)) {
@@ -182,7 +182,7 @@ function initupdate() {
       document.getElementById(up.id).style.display = "none";
     }
     document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
-    document.getElementById((up.id+"s")).innerHTML = clickr.emoji.repeat(clickr.num)
+    document.getElementById((up.id+"s")).innerHTML = up.emoji.repeat(up.num)
   });
   localStorage.setItem('clicks', clicks);
   localStorage.setItem('aIncr', aIncr);
