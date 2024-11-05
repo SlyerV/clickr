@@ -8,7 +8,7 @@ const finger = {
   name: "Extra Finger 👉",
   cost: 10,
   incr: 1,
-  inf: 20,
+  inf: 2,
   show: 0
 };
 const hand = {
@@ -16,7 +16,7 @@ const hand = {
   name: "Helping Hand 🤝",
   cost: 100,
   incr: 3,
-  inf: 50,
+  inf: 1.5,
   show: 50
 };
 
@@ -26,7 +26,7 @@ const worker = {
   name: "Worker 👷",
   cost: 150,
   incr: 1,
-  inf: 75,
+  inf: 1.25,
   show: 100
 };
 // THE LIST
@@ -278,7 +278,7 @@ function manbuy(clickr) {
     sfxLevelUp.play()
     clicks = clicks-clickr.cost
     mIncr+=clickr.incr
-    clickr.cost = clickr.cost+clickr.inf
+    clickr.cost = Math.round(clickr.cost*clickr.inf)
     document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr}x Multiplier)`
     update()
   }
@@ -289,7 +289,7 @@ function autobuy(clickr) {
         sfxLevelUp.play()
         clicks = clicks-clickr.cost
         aIncr+=clickr.incr
-        clickr.cost = clickr.cost+clickr.inf
+        clickr.cost = Math.round(clickr.cost+clickr.inf)
         document.getElementById(clickr.id).innerHTML = `${clickr.name} (Cost: ${clickr.cost}, +${clickr.incr} CPS)`
         if (!aStart) {
           aStart = true
