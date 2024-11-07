@@ -80,22 +80,22 @@ if (localStorage.getItem("aaIncr") != null) {
 if (localStorage.getItem("mmIncr") != null) {
   mmIncr = Number(localStorage.getItem("mmIncr"));
 }
-if (localStorage.getItem("finger") != null) {
+if (localStorage.getItem("cFinger") != null) {
   finger.cost = Number(localStorage.getItem('cFinger'));
 }
-if (localStorage.getItem("hand") != null) {
+if (localStorage.getItem("cHand") != null) {
   hand.cost = Number(localStorage.getItem('cHand'));
 }
-if (localStorage.getItem("worker") != null) {
+if (localStorage.getItem("cWorker") != null) {
   worker.cost = Number(localStorage.getItem('cWorker'));
 }
-if (localStorage.getItem("finger") != null) {
+if (localStorage.getItem("sFinger") != null) {
   finger.show = Number(localStorage.getItem('sFinger'));
 }
-if (localStorage.getItem("hand") != null) {
+if (localStorage.getItem("sHand") != null) {
   hand.show = Number(localStorage.getItem('sHand'));
 }
-if (localStorage.getItem("worker") != null) {
+if (localStorage.getItem("sWorker") != null) {
   worker.show = Number(localStorage.getItem('sWorker'));
 }
 if (localStorage.getItem("fingers") != null) {
@@ -104,7 +104,7 @@ if (localStorage.getItem("fingers") != null) {
 if (localStorage.getItem("hands") != null) {
   hand.num = Number(localStorage.getItem('hands'));
 }
-if (localStorage.getItem("worker") != null) {
+if (localStorage.getItem("workers") != null) {
   worker.num = Number(localStorage.getItem('workers'));
 }
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
