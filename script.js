@@ -244,6 +244,7 @@ function cHover() {
   sfxClick.load()
 }
 function onHover(id) {
+  alert("Hover on "+id)
   if (document.getElementById(id).style.backgroundColor == "red") {
     document.getElementById(id).style.backgroundColor = "#FF5F5F"
   } else if (document.getElementById(id).style.backgroundColor == "seagreen"){
@@ -253,6 +254,7 @@ function onHover(id) {
   }
 }
 function offHover(id) {
+  alert("Hover off "+ id)
   if (document.getElementById(id).style.backgroundColor == "#00CC00") {
     document.getElementById(id).style.backgroundColor = "seagreen"
   } else if (document.getElementById(id).style.backgroundColor == "#FF5F5F") {
