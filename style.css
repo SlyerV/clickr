@@ -68,8 +68,8 @@ strong {
   font-family: Comic Sans MS, Comic Sans, cursive;
 }
 .upgrade {
-  display:none;
-  background-color: red;
+/*   display:none;
+  background-color: red; */
   margin-left: 15%;
   margin-right: 15%;
 }
