@@ -248,6 +248,8 @@ function onHover(id) {
     document.getElementById(id).style.backgroundColor = "#FF5F5F"
   } else if (document.getElementById(id).style.backgroundColor == "seagreen"){
     document.getElementById(id).style.backgroundColor = "#00CC00"
+  } else {
+    alert(document.getElementById(id).style.backgroundColor)
   }
 }
 function offHover(id) {
@@ -255,6 +257,8 @@ function offHover(id) {
     document.getElementById(id).style.backgroundColor = "seagreen"
   } else if (document.getElementById(id).style.backgroundColor == "rgb(255, 95, 95)") {
     document.getElementById(id).style.backgroundColor = "red"
+  } else {
+    alert(document.getElementById(id).style.backgroundColor)
   }
 }
 function rOnHover() {
