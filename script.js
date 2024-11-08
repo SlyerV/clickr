@@ -120,7 +120,7 @@ function update() {
         document.getElementById(up.id).style.display = "inline-block";
         up.show = 0
       } else if (clicks < up.show) {
-        document.getElementById(up.id).style.display = "none";
+        document.getElementById(up.id).style.visibility = "hidden";
       }
       document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
       document.getElementById((up.id+"s")).innerHTML = up.emoji.repeat(up.num)
@@ -130,7 +130,7 @@ function update() {
         document.getElementById(up.id).style.display = "inline-block";
         up.show = 0
       } else if (clicks < up.show) {
-        document.getElementById(up.id).style.display = "none";
+        document.getElementById(up.id).style.visibility = "hidden";
       }
       document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
       document.getElementById((up.id+"s")).innerHTML = up.emoji.repeat(up.num)
@@ -169,7 +169,7 @@ function initupdate() {
       document.getElementById(up.id).style.display = "inline-block";
       up.show = 0
     } else if (clicks < up.show) {
-      document.getElementById(up.id).style.display = "none";
+      document.getElementById(up.id).style.visibility = "hidden";
     }
     document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr}x Multiplier)`;
     document.getElementById((up.id+"s")).innerHTML = up.emoji.repeat(up.num)
@@ -179,7 +179,7 @@ function initupdate() {
       document.getElementById(up.id).style.display = "inline-block";
       up.show = 0
     } else if (clicks < up.show) {
-      document.getElementById(up.id).style.display = "none";
+      document.getElementById(up.id).style.visibility = "hidden";
     }
     document.getElementById(up.id).innerHTML = `${up.name} (Cost: ${up.cost}, +${up.incr} CPS)`;
     document.getElementById((up.id+"s")).innerHTML = up.emoji.repeat(up.num)
