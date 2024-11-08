@@ -246,6 +246,7 @@ function cHover() {
 function onHover(id) {
   if (document.getElementById(id).style.backgroundColor == "red") {
     document.getElementById(id).style.backgroundColor = "#FF5F5F"
+    console.log("SET")
   } else if (document.getElementById(id).style.backgroundColor == "seagreen"){
     document.getElementById(id).style.backgroundColor = "#00CC00"
   } else {
